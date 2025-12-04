@@ -20,6 +20,7 @@ function App() {
     `${import.meta.env.BASE_URL}/coin/heads5.ogg`,
     `${import.meta.env.BASE_URL}/coin/heads6.ogg`,
     `${import.meta.env.BASE_URL}/coin/heads7.ogg`,
+    `${import.meta.env.BASE_URL}/coin/reset01.ogg`,
   ]);
   const [streak, setStreak] = useState(0);
   const [coinSprite, setCoinSprite] = useState(
