@@ -5,7 +5,22 @@ import usePreloadImages from "../usePreloadImages";
 const audioFlip = new Audio(`${import.meta.env.BASE_URL}/coin/coin_sound.wav`);
 const audioReset01 = new Audio(`${import.meta.env.BASE_URL}/coin/reset01.ogg`);
 function App() {
-  usePreloadImages([`${import.meta.env.BASE_URL}/coin/coin_animation.gif`]);
+  usePreloadImages([
+    `${import.meta.env.BASE_URL}/coin/coin_animation.gif`,
+    `${import.meta.env.BASE_URL}/coin/coin_heads0.png`,
+    `${import.meta.env.BASE_URL}/coin/coin_heads1.png`,
+    `${import.meta.env.BASE_URL}/coin/coin_heads2.png`,
+    `${import.meta.env.BASE_URL}/coin/coin_heads3.png`,
+    `${import.meta.env.BASE_URL}/coin/coin_heads4.png`,
+    `${import.meta.env.BASE_URL}/coin/coin_heads5.png`,
+    `${import.meta.env.BASE_URL}/coin/heads1.ogg`,
+    `${import.meta.env.BASE_URL}/coin/heads2.ogg`,
+    `${import.meta.env.BASE_URL}/coin/heads3.ogg`,
+    `${import.meta.env.BASE_URL}/coin/heads4.ogg`,
+    `${import.meta.env.BASE_URL}/coin/heads5.ogg`,
+    `${import.meta.env.BASE_URL}/coin/heads6.ogg`,
+    `${import.meta.env.BASE_URL}/coin/heads7.ogg`,
+  ]);
   const [streak, setStreak] = useState(0);
   const [coinSprite, setCoinSprite] = useState(
     `${import.meta.env.BASE_URL}/coin/coin_heads0.png`
