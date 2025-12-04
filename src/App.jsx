@@ -1,11 +1,12 @@
 import { useState, useTransition } from "react";
 import "./App.css";
-const audioFlip = new Audio("/coin/coin_sound.wav");
-const audioReset01 = new Audio("/coin/reset01.ogg");
-const audioReset02 = new Audio("/coin/reset02.ogg");
+const audioFlip = new Audio(`${import.meta.env.BASE_URL}/coin/coin_sound.wav`);
+const audioReset01 = new Audio(`${import.meta.env.BASE_URL}/coin/reset01.ogg`);
 function App() {
   const [streak, setStreak] = useState(0);
-  const [coinSprite, setCoinSprite] = useState("/coin/coin_heads0.png");
+  const [coinSprite, setCoinSprite] = useState(
+    `${import.meta.env.BASE_URL}/coin/coin_heads0.png`
+  );
   const [coinState, setCoinState] = useState("heads");
   const flip = () => {
     if (coinState == "flipping") {
@@ -17,7 +18,7 @@ function App() {
     } else {
       st = 0;
     }
-    setCoinSprite("/coin/coin_animation.gif");
+    setCoinSprite(`${import.meta.env.BASE_URL}/coin/coin_animation.gif`);
     setCoinState("flipping");
     audioFlip.play();
 
@@ -27,15 +28,22 @@ function App() {
   };
   const timeFlip = (st) => {
     if (st == 0) {
-      setCoinSprite("/coin/coin_tails.png");
+      setCoinSprite(`${import.meta.env.BASE_URL}/coin/coin_tails.png`);
       setCoinState("tails");
       if (streak > 2) {
         audioReset01.play();
       }
     } else {
-      setCoinSprite(`/coin/coin_heads${Math.min(Math.round(st / 2), 5)}.png`);
+      setCoinSprite(
+        `${import.meta.env.BASE_URL}/coin/coin_heads${Math.min(
+          Math.round(st / 2),
+          5
+        )}.png`
+      );
       setCoinState("heads");
-      const audioHeads = new Audio(`/coin/heads${Math.min(st, 7)}.ogg`);
+      const audioHeads = new Audio(
+        `${import.meta.env.BASE_URL}/coin/heads${Math.min(st, 7)}.ogg`
+      );
       audioHeads.play();
     }
 
