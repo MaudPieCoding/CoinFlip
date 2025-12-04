@@ -1,8 +1,11 @@
 import { useState, useTransition } from "react";
 import "./App.css";
+import usePreloadImages from "../usePreloadImages";
+
 const audioFlip = new Audio(`${import.meta.env.BASE_URL}/coin/coin_sound.wav`);
 const audioReset01 = new Audio(`${import.meta.env.BASE_URL}/coin/reset01.ogg`);
 function App() {
+  usePreloadImages([`${import.meta.env.BASE_URL}/coin/coin_animation.gif`]);
   const [streak, setStreak] = useState(0);
   const [coinSprite, setCoinSprite] = useState(
     `${import.meta.env.BASE_URL}/coin/coin_heads0.png`
